@@ -104,5 +104,6 @@ HALON_EXPORT
 bool Halon_hsl_register(HalonHSLRegisterContext* hhrc)
 {
 	HalonMTA_hsl_register_function(hhrc, "geoip", &geoip);
+	HalonMTA_hsl_module_register_function(hhrc, "geoip", &geoip);
 	return true;
 }

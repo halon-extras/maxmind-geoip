@@ -36,6 +36,7 @@ A function called `geoip` is now available in HSL and can be used in any context
 An example how you can use it in the connect hook.
 
 ```
+import { geoip } from "extras://geoip";
 $remoteip = $arguments["remoteip"];
 echo "GeoIP: ".geoip($remoteip);
 ```
