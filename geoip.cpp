@@ -1,5 +1,4 @@
 #include <cstdlib>
-#include <iostream>
 #include <syslog.h>
 #include <HalonMTA.h>
 #include <maxminddb.h>
@@ -24,14 +23,14 @@ bool Halon_init(HalonInitContext* hic)
 	const char* path = HalonMTA_config_string_get(HalonMTA_config_object_get(cfg, "path"), nullptr);
 	if (!path)
 	{
-		cout << "maxmind-geoip: no database path specified" << endl;
+		syslog(LOG_CRIT, "maxmind-geoip: no database path specified");
 		return false;
 	}
 
 	mmdb_status = MMDB_open(path, MMDB_MODE_MMAP, &mmdb);
 	if (mmdb_status != MMDB_SUCCESS)
 	{
-		cout << "maxmind-geoip: " << MMDB_strerror(mmdb_status) << endl;
+		syslog(LOG_CRIT, "maxmind-geoip: %s", MMDB_strerror(mmdb_status));
 		return false;
 	}
 
