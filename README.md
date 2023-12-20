@@ -7,7 +7,7 @@ Upon error the function will return an associative array with a ``error`` (strin
 If a country database is used the plugin will return the country name ``country`` (string) and country ISO code ``iso_code`` (string) as an associative array. An empty array will be returned if no data is available for the queried IP. 
 
 ### ASN
-If an ASN database is used the plugin will return the organization name ``organization`` (string) and asn number ``number`` (string) as an associative array. An empty array will be returned if no data is available for the queried IP. 
+If an ASN database is used the plugin will return the organization name ``organization`` (string) and asn ``number`` (number) as an associative array. An empty array will be returned if no data is available for the queried IP. 
 
 ## Installation
 
