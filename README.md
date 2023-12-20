@@ -1,6 +1,13 @@
 ## MaxMind GeoIP2
 
-This plugin allows you to lookup an IP address with MaxMind's GeoIP2 database. The plugin will return the country name ``country`` (string) and country ISO code ``iso_code`` (string) as an associative array. An empty array will be returned if no data is available for the queried IP. Upon error the function will return an associative array with a ``error`` (string) property. This plugin depends on the libmaxminddb library (libmaxminddb-dev) and the appropiate GeoLite2 databased obtained from MaxMind.
+This plugin allows you to lookup an IP address with [MaxMind's GeoIP2 database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data). Depending on the database type used the plugin will return different values. The plugin depends on the libmaxminddb library (libmaxminddb-dev) and the appropiate GeoLite2 databases obtained from MaxMind.
+Upon error the function will return an associative array with a ``error`` (string) property.
+
+### Country
+If a country database is used the plugin will return the country name ``country`` (string) and country ISO code ``iso_code`` (string) as an associative array. An empty array will be returned if no data is available for the queried IP. 
+
+### ASN
+If an ASN database is used the plugin will return the organization name ``organization`` (string) and asn number ``number`` (string) as an associative array. An empty array will be returned if no data is available for the queried IP. 
 
 ## Installation
 

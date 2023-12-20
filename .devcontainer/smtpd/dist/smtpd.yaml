@@ -20,3 +20,4 @@ plugins:
   - id: geoip
     config:
       path: /GeoLite2-Country.mmdb
+      # path: /GeoLite2-ASN.mmdb

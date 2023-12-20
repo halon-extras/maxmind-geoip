@@ -97,6 +97,23 @@ void geoip(HalonHSLContext* hhc, HalonHSLArguments* args, HalonHSLValue* ret)
 		HalonMTA_hsl_value_set(k, HALONMTA_HSL_TYPE_STRING, "iso_code", 0);
 		HalonMTA_hsl_value_set(v, HALONMTA_HSL_TYPE_STRING, entry_data.utf8_string, entry_data.data_size);
 	}
+
+	mmdb_value_status = MMDB_get_value(&lookup.entry, &entry_data, "autonomous_system_organization", NULL);
+	if (mmdb_value_status == MMDB_SUCCESS && entry_data.has_data)
+	{
+		HalonMTA_hsl_value_array_add(ret, &k, &v);
+		HalonMTA_hsl_value_set(k, HALONMTA_HSL_TYPE_STRING, "organization", 0);
+		HalonMTA_hsl_value_set(v, HALONMTA_HSL_TYPE_STRING, entry_data.utf8_string, entry_data.data_size);
+	}
+
+	mmdb_value_status = MMDB_get_value(&lookup.entry, &entry_data, "autonomous_system_number", NULL);
+	if (mmdb_value_status == MMDB_SUCCESS && entry_data.has_data)
+	{
+		HalonMTA_hsl_value_array_add(ret, &k, &v);
+		HalonMTA_hsl_value_set(k, HALONMTA_HSL_TYPE_STRING, "number", 0);
+		double asn = entry_data.int32;
+		HalonMTA_hsl_value_set(v, HALONMTA_HSL_TYPE_NUMBER, &asn, 0);
+	}
 }
 
 HALON_EXPORT
