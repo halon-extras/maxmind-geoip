@@ -2,3 +2,4 @@
 /build/dist
 /build/vscode
 .devcontainer/GeoLite2-Country.mmdb
+license.key
